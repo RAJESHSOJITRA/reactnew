@@ -1,13 +1,13 @@
 /* eslint-disable react/prop-types */
-import PropTypes from "prop-types";
+// import PropTypes from "prop-types";
 
-export default function Navbar(props) {
+export default function Navbar() {
   return (
     <>
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
         <div className="container-fluid">
           <a className="navbar-brand" href="#">
-            {props.text}
+            {/* {props.text} */} navbar texts
           </a>
           <button
             className="navbar-toggler"
@@ -24,7 +24,7 @@ export default function Navbar(props) {
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
                 <a className="nav-link active" aria-current="page" href="#">
-                  {props.abouttext}
+                  {/* {props.abouttext} */}about
                 </a>
               </li>
               <li className="nav-item">
@@ -90,9 +90,9 @@ export default function Navbar(props) {
     </>
   );
 }
-Navbar.prototype = { 
-    title: PropTypes.string,
-     abouttext: PropTypes.string };
-Navbar.defaultProps = {  
-    text: "first home",
-     abouttext: "about" };
+// Navbar.prototype = { 
+//     title: PropTypes.string,
+//      abouttext: PropTypes.string };
+// Navbar.defaultProps = {  
+//     text: "first home",
+//      abouttext: "about" };

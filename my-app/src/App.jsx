@@ -1,15 +1,16 @@
 // import { useState } from 'react'
 // import './App.css'
 import Navbar from "./component/Navbar";
-import Textform from './component/textform';
+import Textforms from "./component/Textforms";
 
 function App() {
 
   return (
     <>
-   
-<Navbar text="textutils" abouttext="about textutils" />
-    <Textform email="Please enter a Email" password="Enter your Password" />
+    <Navbar/>
+    {/* <Textform/> */}
+{/* <Navbar text="textutils" abouttext="about textutils" /> */}
+    <Textforms />
     </>
   )
 }
