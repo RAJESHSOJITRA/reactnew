@@ -11,7 +11,7 @@ export default function About() {
                     backgroundColor:"black ", 
                 })
                 setbtnText('Enable lightmode')
-          }
+          } 
         else{
               setMystyle({
                     color:"black",

@@ -1,14 +1,19 @@
 /* eslint-disable react/prop-types */
 // import PropTypes from "prop-types";
+// import { Link } from 'react-router-dom';
+// import Textforms from './Textforms';
 
-export default function Navbar() {
+export default function Navbar(props) {
   return (    
     <>                                  
-                                             {/* we can add warnning success danger etc */}
-      <nav className="navbar navbar-expand-lg navbar-dark  bg-dark">
+                                      {/* we can add warnning success danger etc */}
+    
+      <nav className={`navbar navbar-expand-lg navbar-${props.mode}  bg-${props.mode}`}>
+                 
         <div className="container-fluid">
+          {/* we can use Link and  to  instead of <a href=""></a> */}
           <a className="navbar-brand" href="#">
-            {/* {props.text} */} navbar texts
+            {/* {props.text} */} Home Page
           </a>
           <button
             className="navbar-toggler"
@@ -24,13 +29,16 @@ export default function Navbar() {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
+                {/* <Link className="nav-link active" aria-current="page" to="/about"> */}
+                  {/* {props.abouttext} */}about
+                {/* </Link> */}
                 <a className="nav-link active" aria-current="page" href="#">
                   {/* {props.abouttext} */}about
                 </a>
               </li>
               <li className="nav-item">
                 <a className="nav-link" href="#">
-                  Link
+                  Textforms
                 </a>
               </li>
               <li className="nav-item dropdown">
@@ -45,12 +53,12 @@ export default function Navbar() {
                 </a>
                 <ul className="dropdown-menu">
                   <li>
-                    <a className="dropdown-item" href="/">
+                    <a className="dropdown-item" href="#">
                       Action
                     </a>
                   </li>
                   <li>
-                    <a className="dropdown-item" href="/">
+                    <a className="dropdown-item" href="#">
                       Another action
                     </a>
                   </li>
@@ -58,7 +66,7 @@ export default function Navbar() {
                     <hr className="dropdown-divider" />
                   </li>
                   <li>
-                    <a className="dropdown-item" href="/">
+                    <a className="dropdown-item" href="#">
                       Something else here
                     </a>
                   </li>
@@ -79,10 +87,15 @@ export default function Navbar() {
               />
               <button className="btn btn-outline-success" type="submit">
                 Search
-              </button>
+              </button> 
             </form>
           </div>
         </div>
+    <div className={`form-check form-switch text-${props.mode==="light"?"dark":"light"}`}>
+  <input className="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" onClick={props.togglemode}/>
+    <label className="form-check-label" htmlFor="flexSwitchCheckDefault">
+    {props.mode==="light"?"lightmode":"darkmode"} </label>
+</div>
       </nav>
 
       <div className="container">
