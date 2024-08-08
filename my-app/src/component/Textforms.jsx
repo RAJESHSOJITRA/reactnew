@@ -78,7 +78,7 @@ function Textforms(props) {
 
       <div className="container">
         <h1>your text summary</h1>
-        <p>{text.split(" ").length} words  {text.length}character</p>
+        <p>{text.split(" ").filter((element)=>{return element.length!=0}).length} words  {text.length}character</p>
         <p>{(0.008) * (text.split(" ").length)}  minute to read the words</p>
 
         <h2>Preview</h2>

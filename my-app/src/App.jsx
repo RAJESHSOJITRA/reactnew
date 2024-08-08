@@ -1,10 +1,10 @@
-// import './App.css'
+import './App.css'
 import About from "./component/About";
 import { useState } from "react";
 import Navbar from "./component/Navbar";
 import Textforms from "./component/Textforms";
 import Alerts from './component/Alerts';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 function App() {
 
   const[mode,setMode]=useState("light");
@@ -20,8 +20,20 @@ function App() {
     },1000);
   }
 
-  const togglemode=()=>{
-      if(mode==="light"){
+    const  removebgClass=()=>{
+      document.body.classList.remove('bg-light');
+      document.body.classList.remove('bg-dark');
+      document.body.classList.remove('bg-primary');
+      document.body.classList.remove('bg-success');
+      document.body.classList.remove('bg-warning');
+      document.body.classList.remove('bg-danger');
+    }
+
+  const togglemode=(cls)=>{
+    removebgClass();
+    console.log(cls);
+    document.body.classList.add('bg-'+cls)
+    if(mode==="light"){
         setMode("dark");
         document.body.style.backgroundColor="#495057";
         document.body.style.color="white";
@@ -39,11 +51,13 @@ function App() {
 
   return (
     <>
-     <Navbar mode={mode} togglemode={togglemode} />
+     {/* <Navbar mode={mode} togglemode={togglemode} />
      <Alerts alert={alert} />
-     <Textforms showAlert={showAlert} />
+     <Textforms showAlert={showAlert} /> */}
     {/* <About path="/about"></About> */}
-    {/* <Router>
+
+
+     <Router>
       <Navbar mode={mode} togglemode={togglemode} />
       <Alerts alert={alert} />
      <Routes>
@@ -55,7 +69,7 @@ function App() {
     <Routes>
     <Route path="/textforms" element={ <Textforms showAlert={showAlert} />}/>
     </Routes>
-    </Router> */}
+    </Router> 
   
     {/* <Router>
     <Routes>

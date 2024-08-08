@@ -1,20 +1,21 @@
 /* eslint-disable react/prop-types */
 // import PropTypes from "prop-types";
-// import { Link } from 'react-router-dom';
-// import Textforms from './Textforms';
+import { Link } from 'react-router-dom';
+// eslint-disable-next-line no-unused-vars
+import Textforms from './Textforms';
 
 export default function Navbar(props) {
-  return (    
-    <>                                  
-                                      {/* we can add warnning success danger etc */}
-    
+  return (
+    <>
+      {/* we can add warnning success danger etc */}
+
       <nav className={`navbar navbar-expand-lg navbar-${props.mode}  bg-${props.mode}`}>
-                 
+
         <div className="container-fluid">
           {/* we can use Link and  to  instead of <a href=""></a> */}
-          <a className="navbar-brand" href="#">
+          <Link className="navbar-brand" to="/">
             {/* {props.text} */} Home Page
-          </a>
+          </Link>
           <button
             className="navbar-toggler"
             type="button"
@@ -29,20 +30,20 @@ export default function Navbar(props) {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                {/* <Link className="nav-link active" aria-current="page" to="/about"> */}
+                <Link className="nav-link active" aria-current="page" to="/about">
                   {/* {props.abouttext} */}about
-                {/* </Link> */}
-                <a className="nav-link active" aria-current="page" href="#">
-                  {/* {props.abouttext} */}about
-                </a>
+                </Link>
+                {/* <a className="nav-link active" aria-current="page" href="#"> */}
+                {/* {props.abouttext} */}
+                {/* </a> */}
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">
+                <Link className="nav-link" to="/textforms">
                   Textforms
-                </a>
+                </Link>
               </li>
               <li className="nav-item dropdown">
-                <a
+                <Link
                   className="nav-link dropdown-toggle"
                   href="#"
                   role="button"
@@ -50,34 +51,35 @@ export default function Navbar(props) {
                   aria-expanded="false"
                 >
                   Dropdown
-                </a>
+                </Link>
                 <ul className="dropdown-menu">
                   <li>
-                    <a className="dropdown-item" href="#">
+                    <Link className="dropdown-item" to="#">
                       Action
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a className="dropdown-item" href="#">
+                    <Link className="dropdown-item" to="#">
                       Another action
-                    </a>
+                    </Link>
                   </li>
                   <li>
                     <hr className="dropdown-divider" />
                   </li>
                   <li>
-                    <a className="dropdown-item" href="#">
+                    <Link className="dropdown-item" to="#">
                       Something else here
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </li>
               <li className="nav-item">
-                <a className="nav-link disabled" aria-disabled="true">
+                <Link className="nav-link disabled" aria-disabled="true">
                   Disabled
-                </a>
+                </Link>
               </li>
             </ul>
+
             <form className="d-flex" role="search">
               <input
                 className="form-control me-2"
@@ -87,15 +89,25 @@ export default function Navbar(props) {
               />
               <button className="btn btn-outline-success" type="submit">
                 Search
-              </button> 
+              </button>
             </form>
           </div>
         </div>
-    <div className={`form-check form-switch text-${props.mode==="light"?"dark":"light"}`}>
-  <input className="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" onClick={props.togglemode}/>
-    <label className="form-check-label" htmlFor="flexSwitchCheckDefault">
-    {props.mode==="light"?"lightmode":"darkmode"} </label>
-</div>
+
+        {/* toggel mode  */}
+        <div className="d-flex">
+          <div className="bg-primary round mx-2" onClick={() => (props.togglemode("primary"))}  style={{ height: "20px", width: "20px", cursor: 'pointer' }} ></div>
+          <div className="bg-success round mx-2" onClick={() => (props.togglemode("success"))} style={{ height: "20px", width: "20px", cursor: 'pointer' }} ></div>
+          <div className="bg-danger round mx-2" onClick={() => (props.togglemode("danger"))} style={{ height: "20px", width: "20px", cursor: 'pointer' }} ></div>
+          <div className="bg-warning round mx-2" onClick={() => (props.togglemode("warning"))} style={{ height: "20px", width: "20px", cursor: 'pointer' }} ></div>
+        </div>
+
+
+        <div className={`form-check form-switch text-${props.mode === "light" ? "dark" : "light"}`}>
+          <input className="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" onClick={() => (props.togglemode(null))} />
+          <label className="form-check-label" htmlFor="flexSwitchCheckDefault">
+            {/* {props.mode==="light"?"lightmode":"darkmode"} */}toggelmode </label>
+        </div>
       </nav>
 
       <div className="container">
@@ -104,9 +116,9 @@ export default function Navbar(props) {
     </>
   );
 }
-// Navbar.prototype = { 
+// Navbar.prototype = {
 //     title: PropTypes.string,
 //      abouttext: PropTypes.string };
-// Navbar.defaultProps = {  
+// Navbar.defaultProps = {
 //     text: "first home",
 //      abouttext: "about" };
